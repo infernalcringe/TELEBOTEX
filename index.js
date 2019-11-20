@@ -34,9 +34,9 @@ setInterval(function(){
   }
 }, 1000);
 
-let getWinner = (loh1, loh2) => {
+let getWinner = (loh1, loh2, loh3) => {
 
-  let rand = getRandomArbitrary(1, 4);
+  let rand = getRandomArbitrary(1, 5);
   console.log(rand);
 
   switch(rand){
@@ -50,16 +50,15 @@ let getWinner = (loh1, loh2) => {
         return mesText = `${loh1} i ${loh2}, vy oba yebanutye`;
         break;
     case 4:
-        return `${msg.from.first_name}, ty loh, a ${loh1} i ${loh2} - rovnye patsany`;
+        return `${loh3}, ty loh, a ${loh1} i ${loh2} - rovnye patsany`;
         break;
   };
 };
 
 bot.onText(/кто прав (.+) или (.+)/, function (msg, match) {
   let userId = msg.from.id;
-  let loh1 = match[1];
-  let loh2 = match[2];
-  let messageText = getWinner(match[1], match[2]);
+  let loh3 = msg.from.first_name;
+  let messageText = getWinner(match[1], match[2], loh3);
   console.log(messageText, match[1], match[2]);
   bot.sendMessage(msg.chat.id, messageText);
 });
