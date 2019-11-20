@@ -61,7 +61,7 @@ bot.onText(/кто прав (.+) или (.+)/, function (msg, match) {
   let loh2 = match[2];
   let messageText = getWinner(match[1], match[2]);
   console.log(messageText, match[1], match[2]);
-  bot.sendMessage(userId, messageText);
+  bot.sendMessage(msg.chat.id, messageText);
 });
 
 bot.onText(/\/love/, function onLoveText(msg) {
