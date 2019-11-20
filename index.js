@@ -26,8 +26,6 @@ setInterval(function(){
   }
 }, 1000);
 
-});
-
 bot.onText(/\/love/, function onLoveText(msg) {
   const opts = {
     reply_to_message_id: msg.message_id,
